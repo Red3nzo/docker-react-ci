@@ -1,0 +1,15 @@
+# Downloading NodeJS apline image
+FROM node:alpine
+
+# Setting code dir for app files
+WORKDIR '/app'
+
+# Copying dependencies and install packages for build
+COPY package.json .
+RUN npm install
+
+# Setting code files in dir
+COPY . .
+
+# Starting dev server locally
+CMD ["npm", "run", "start"]
