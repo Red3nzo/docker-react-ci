@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t red3nzo/docker-react-ci -f Dockerfile.dev .
+
+script:
+    - docker run red3nzo/docker-react-ci npm run test -- --coverage
